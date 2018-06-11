@@ -22,10 +22,7 @@ const data = [
 ];
 
 // Create the data 2D-array (vectors) describing the data
-let vectors = new Array();
-for (let i = 0 ; i < data.length ; i++) {
-  vectors[i] = [ data[i]['size'] , data[i]['revenue']];
-}
+let vectors = data.map(item=>[item.size,item.revenue])
 
 const kmeans = require('node-kmeans');
 kmeans.clusterize(vectors, {k: 4}, (err,res) => {
